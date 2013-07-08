@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>jQuery Text Wrapper</title>
+	<style type="text/css">
+		em{ color: #B70000; }
+		span {color: #009CB7;}
+
+		.array-jquery{ color: #1000FF; }
+		.single-jquery{ color: #890082; }
+		.single-node{ color: #7B8C00; }
+	</style>
+</head>
+<body>
+	
+	<h1>jQuery Text Wrapper</h1>
+	
+	<h3>Demo text</h3>
+
+	<div class="text">Lorem Ipsum is simply <b>dummy</b> text of the printing.</div>
+	
+	<script src="http://code.jquery.com/jquery-1.6.4.min.js" type="text/javascript"></script>
+	<script src="../jquery.textwrapper.js"></script>
+
+	<script type="text/javascript">
+
+		$('.text').textwrap(['Lorem', 'Ipsum'], $('<span class="array-jquery" />'));
+
+		$('.text').textwrap('is', $('<span class="single-jquery" />'));
+
+		var ns = document.createElement('span');
+		ns.className = 'single-node';
+		$('.text').textwrap('simply', ns);
+
+		$('.text').textwrap('dummy', 'span');
+
+		$('.text').textwrap('text of the printing', 'span');
+		$('.text').textunwrap('text of the printing');
+
+	</script>
+	
+</body>
+</html>
